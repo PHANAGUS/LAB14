@@ -21,3 +21,31 @@ int main()
     }while(s != 0 || x != 0 || y != 0);
     return 0;
 }
+
+void updateImage(bool pos[30][70], int s, int x, int y)
+{
+    for(int i=0 ; i<30 ; i++)
+    {
+        for(int j=0 ; j<70 ; j++)
+        {
+            if(sqrt(pow(i-x,2)+pow(j-y,2)) <= s-1)
+            pos[i][j] = 1;
+        }
+    }
+}
+
+void showImage(const bool canvas[][70])
+{
+    cout << "------------------------------------------------------------------------\n";
+    for(int i=0 ; i<30 ; i++)
+    {
+        cout << "|";
+        for(int j=0 ; j<70 ; j++)
+        {
+            if(canvas[i][j] == 1) cout << "*";
+            else cout << " ";
+        }
+        cout << "|\n";
+    }
+    cout << "------------------------------------------------------------------------\n";
+}
